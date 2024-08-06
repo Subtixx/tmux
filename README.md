@@ -4,6 +4,10 @@
 
 ![Screenshot](./screenshot.png)
 
+## New CPU & Memory Bars
+
+![image](https://github.com/user-attachments/assets/42a3755f-b2e1-4046-9f32-e2257f25434b)
+
 ## Install
 
 All instructions can be found at [draculatheme.com/tmux](https://draculatheme.com/tmux).
@@ -50,9 +54,9 @@ FreeBSD compatibility is in development
 
 This theme is maintained by the following person(s) and a bunch of [awesome contributors](https://github.com/dracula/tmux/graphs/contributors).
 
-| [![Dane Williams](https://avatars2.githubusercontent.com/u/22798229?s=70&v=4",)](https://github.com/danerwilliams) | [![Ethan Edwards](https://avatars1.githubusercontent.com/u/60861925?s=70&v=4)](https://github.com/ethancedwards8) |
-| ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| [Dane Williams](https://github.com/danerwilliams)                                                                  | [Ethan Edwards](https://github.com/ethancedwards8)                                                                |
+| [![Dominic Hock](https://avatars.githubusercontent.com/u/20743379?s=70&v=4)](https://github.com/subtixx) | [![Dane Williams](https://avatars2.githubusercontent.com/u/22798229?s=70&v=4",)](https://github.com/danerwilliams) | [![Ethan Edwards](https://avatars1.githubusercontent.com/u/60861925?s=70&v=4)](https://github.com/ethancedwards8) |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| [Dominic Hock](https://github.com/subtixx) | [Dane Williams](https://github.com/danerwilliams)                                                                  | [Ethan Edwards](https://github.com/ethancedwards8)                                                                |
 
 ## Community
 
