@@ -34,3 +34,32 @@ normalize_percent_len() {
   printf "%${left_spaces}s%s%${right_spaces}s\n" "" $1 ""
 }
 
+bargraph() {
+  arg_percentage="$1"
+  bg_color="${2:-#282a36}"
+  fg_color="${3:-#f8f8f2}"
+
+  # ▁, ▂, ▃, ▄, ▅, ▆, ▇, █
+  # 0%, 12.5%, 25%, 37.5%, 50%, 62.5%, 75%, 87.5%, 100%
+  # use awk to round the percentage to the nearest integer
+  percentage=$(echo "$arg_percentage" | awk '{print int($1+0.5)}')
+  display_percentage=$(echo "$arg_percentage" | awk '{printf " %0.1f ", $1}')
+  if [ $percentage -lt 12 ]; then
+    echo "[#[bg=$bg_color]▁]$display_percentage%"
+  elif [ "$percentage" -lt 25 ]; then
+    echo "[#[fg=#50fa7b]#[bg=$bg_color]▂#[fg=$fg_color]]$display_percentage%"
+  elif [ "$percentage" -lt 37 ]; then
+    echo "[#[fg=#50fa7b]#[bg=$bg_color]▃#[fg=$fg_color]]$display_percentage%"
+  elif [ "$percentage" -lt 50 ]; then
+    echo "[#[fg=#f1fa8c]#[bg=$bg_color]▄#[fg=$fg_color]]$display_percentage%"
+  elif [ "$percentage" -lt 62 ]; then
+    echo "[#[fg=#f1fa8c]#[bg=$bg_color]▅#[fg=$fg_color]]$display_percentage%"
+  elif [ "$percentage" -lt 75 ]; then
+    echo "[#[fg=#FF5555]#[bg=$bg_color]▆#[fg=$fg_color]]$display_percentage%"
+  elif [ "$percentage" -lt 87 ]; then
+    echo "[#[fg=#FF5555]#[bg=$bg_color]▇#[fg=$fg_color]]$display_percentage%"
+  else
+    echo "[#[fg=#FF5555]#[bg=$bg_color]▇#[fg=$fg_color]]$display_percentage%"
+  fi
+}
+
