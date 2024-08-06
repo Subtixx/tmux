@@ -52,11 +52,14 @@ main() {
   # storing the refresh rate in the variable RATE, default is 5
   RATE=$(get_tmux_option "@dracula-refresh-rate" 5)
   cpu_load=$(get_tmux_option "@dracula-cpu-display-load" false)
+  cpu_bars=$(get_tmux_option "@dracula-cpu-bars" true)
   cpu_label=$(get_tmux_option "@dracula-cpu-usage-label" "CPU")
+  cpu_percent=$(get_percent)
   if [ "$cpu_load" = true ]; then
     echo "$cpu_label $(get_load)"
+  elif [ "$cpu_bars" = true ]; then
+    bargraph "$cpu_percent" "#ffb86c" "#282a36"
   else
-    cpu_percent=$(get_percent)
     echo "$cpu_label $cpu_percent"
   fi
   sleep $RATE
