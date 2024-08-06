@@ -79,9 +79,18 @@ $(vmstat -s | grep "pages zeroed$" | sed -ne 's/^ *\([0-9]*\).*$/\1/p') +
 
 main()
 {
+  RATE=$(get_tmux_option "@dracula-refresh-rate" 5)
   ram_label=$(get_tmux_option "@dracula-ram-usage-label" "RAM")
+  ram_graph=$(get_tmux_option "@dracula-ram-graph" true)
   ram_ratio=$(get_ratio)
-  echo "$ram_label $ram_ratio"
+  mem_perc=$(echo "$ram_ratio" | awk -F'/' '{print ($1/$2)*100}')
+  if [ "$ram_graph" = true ]; then
+    bargraph "$mem_perc" "#8be9fd" "#282a36"
+  else
+    echo "$ram_label $ram_ratio"
+  fi
+
+  sleep $RATE
 }
 
 #run main driver
